@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2015-05-08
+  etat_ordinateur_preced_id: 1
+  etat_ordinateur_acquis_id: 1
+  employe_id: 1
+  ordinateur_id: 1
+
+two:
+  date: 2015-05-08
+  etat_ordinateur_preced_id: 1
+  etat_ordinateur_acquis_id: 1
+  employe_id: 1
+  ordinateur_id: 1

@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Priorite Beneficiaires</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @priorite_beneficiaires.each do |priorite_beneficiaire| %>
+      <tr>
+        <td><%= priorite_beneficiaire.description %></td>
+        <td><%= link_to 'Show', priorite_beneficiaire %></td>
+        <td><%= link_to 'Edit', edit_priorite_beneficiaire_path(priorite_beneficiaire) %></td>
+        <td><%= link_to 'Destroy', priorite_beneficiaire, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Priorite beneficiaire', new_priorite_beneficiaire_path %>

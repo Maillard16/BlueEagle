@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Rendez Vous</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Beneficiaire</th>
+      <th>Employe</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rendez_vous.each do |rendez_vou| %>
+      <tr>
+        <td><%= rendez_vou.date %></td>
+        <td><%= rendez_vou.beneficiaire_id %></td>
+        <td><%= rendez_vou.employe_id %></td>
+        <td><%= link_to 'Show', rendez_vou %></td>
+        <td><%= link_to 'Edit', edit_rendez_vou_path(rendez_vou) %></td>
+        <td><%= link_to 'Destroy', rendez_vou, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Rendez vou', new_rendez_vou_path %>

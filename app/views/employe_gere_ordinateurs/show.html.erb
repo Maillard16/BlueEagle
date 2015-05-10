@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @employe_gere_ordinateur.date %>
+</p>
+
+<p>
+  <strong>Etat ordinateur preced:</strong>
+  <%= @employe_gere_ordinateur.etat_ordinateur_preced_id %>
+</p>
+
+<p>
+  <strong>Etat ordinateur acquis:</strong>
+  <%= @employe_gere_ordinateur.etat_ordinateur_acquis_id %>
+</p>
+
+<p>
+  <strong>Employe:</strong>
+  <%= @employe_gere_ordinateur.employe_id %>
+</p>
+
+<p>
+  <strong>Ordinateur:</strong>
+  <%= @employe_gere_ordinateur.ordinateur_id %>
+</p>
+
+<%= link_to 'Edit', edit_employe_gere_ordinateur_path(@employe_gere_ordinateur) %> |
+<%= link_to 'Back', employe_gere_ordinateurs_path %>

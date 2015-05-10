@@ -1,0 +1,37 @@
+<%= form_for(@employe_gere_ordinateur) do |f| %>
+  <% if @employe_gere_ordinateur.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@employe_gere_ordinateur.errors.count, "error") %> prohibited this employe_gere_ordinateur from being saved:</h2>
+
+      <ul>
+      <% @employe_gere_ordinateur.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :date %><br>
+    <%= f.date_select :date %>
+  </div>
+  <div class="field">
+    <%= f.label :etat_ordinateur_preced_id %><br>
+    <%= f.number_field :etat_ordinateur_preced_id %>
+  </div>
+  <div class="field">
+    <%= f.label :etat_ordinateur_acquis_id %><br>
+    <%= f.number_field :etat_ordinateur_acquis_id %>
+  </div>
+  <div class="field">
+    <%= f.label :employe_id %><br>
+    <%= f.number_field :employe_id %>
+  </div>
+  <div class="field">
+    <%= f.label :ordinateur_id %><br>
+    <%= f.number_field :ordinateur_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

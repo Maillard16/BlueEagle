@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @rendez_vou.date %>
+</p>
+
+<p>
+  <strong>Beneficiaire:</strong>
+  <%= @rendez_vou.beneficiaire_id %>
+</p>
+
+<p>
+  <strong>Employe:</strong>
+  <%= @rendez_vou.employe_id %>
+</p>
+
+<%= link_to 'Edit', edit_rendez_vou_path(@rendez_vou) %> |
+<%= link_to 'Back', rendez_vous_path %>

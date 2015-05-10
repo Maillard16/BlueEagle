@@ -1,0 +1,21 @@
+<%= form_for(@priorite_beneficiaire) do |f| %>
+  <% if @priorite_beneficiaire.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@priorite_beneficiaire.errors.count, "error") %> prohibited this priorite_beneficiaire from being saved:</h2>
+
+      <ul>
+      <% @priorite_beneficiaire.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

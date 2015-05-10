@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Numero:</strong>
+  <%= @ordinateur.numero %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @ordinateur.description %>
+</p>
+
+<p>
+  <strong>Entreprise:</strong>
+  <%= @ordinateur.entreprise_id %>
+</p>
+
+<p>
+  <strong>Beneficiaire:</strong>
+  <%= @ordinateur.beneficiaire_id %>
+</p>
+
+<p>
+  <strong>Etat ordinateur:</strong>
+  <%= @ordinateur.etat_ordinateur_id %>
+</p>
+
+<%= link_to 'Edit', edit_ordinateur_path(@ordinateur) %> |
+<%= link_to 'Back', ordinateurs_path %>
