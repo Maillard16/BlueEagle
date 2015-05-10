@@ -1,11 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  id: 1
   date: 2015-05-08
   beneficiaire_id: 1
-  employe_id: 1
+  employe_id: 2
 
 two:
+  id: 2
   date: 2015-05-08
-  beneficiaire_id: 1
+  beneficiaire_id: 2
   employe_id: 1

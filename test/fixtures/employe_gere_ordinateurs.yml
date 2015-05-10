@@ -1,15 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  id: 1
   date: 2015-05-08
-  etat_ordinateur_preced_id: 1
+  etat_ordinateur_preced_id: 2
   etat_ordinateur_acquis_id: 1
   employe_id: 1
   ordinateur_id: 1
 
 two:
+  id: 2
   date: 2015-05-08
-  etat_ordinateur_preced_id: 1
+  etat_ordinateur_preced_id: 2
   etat_ordinateur_acquis_id: 1
-  employe_id: 1
-  ordinateur_id: 1
+  employe_id: 2
+  ordinateur_id: 2

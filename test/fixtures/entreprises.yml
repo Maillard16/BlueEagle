@@ -1,13 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  nom: MyString
-  telephone: MyString
-  adresse: MyString
+entre1:
+  id: 1
+  nom: Tesco
+  telephone: 0385959929
+  adresse: Route de Meyrin 19, 1208 Genève
   user_id: 1
 
-two:
-  nom: MyString
-  telephone: MyString
-  adresse: MyString
-  user_id: 1
+entre2:
+  id: 2
+  nom: HRSolutions
+  telephone: 3832999222
+  adresse: Route du Vent 52, 1400 Yverdon
+  user_id: 2

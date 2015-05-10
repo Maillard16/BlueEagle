@@ -1,17 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  prenom: MyString
-  nom: MyString
-  telephone: MyString
-  adresse: MyString
+bene1:
+  id: 1
+  prenom: Charles
+  nom: Desponds
+  telephone: 0682926282
+  adresse: Rue des Moulins 12, 1350 Orbe
   organisme_id: 1
   priorite_beneficiaire_id: 1
 
-two:
-  prenom: MyString
-  nom: MyString
-  telephone: MyString
-  adresse: MyString
-  organisme_id: 1
+bene2:
+  id: 2
+  prenom: Irène
+  nom: Souq
+  telephone: 0373042949
+  adresse: Ch. des Vignes 7, 1044 Fey
+  organisme_id: 2
   priorite_beneficiaire_id: 1

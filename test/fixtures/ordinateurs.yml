@@ -1,15 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  numero: 1
-  description: MyText
+  id: 1
+  numero: 1293
+  description: Windows 7, 4Go Ram, i7
   entreprise_id: 1
   beneficiaire_id: 1
   etat_ordinateur_id: 1
 
 two:
+  id: 2
   numero: 1
-  description: MyText
-  entreprise_id: 1
-  beneficiaire_id: 1
-  etat_ordinateur_id: 1
+  description: Apple Snow Leopard, 4Go Ram
+  entreprise_id: 2
+  beneficiaire_id: 2
+  etat_ordinateur_id: 2

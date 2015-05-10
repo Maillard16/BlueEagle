@@ -1,13 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  nom: MyString
-  telephone: MyString
-  adresse: MyString
+  id: 1
+  nom: Etat de Vaud
+  telephone: 0373499911
+  adresse: Route de Cheseau 1, 1400 Yverdon
   user_id: 1
 
 two:
-  nom: MyString
-  telephone: MyString
-  adresse: MyString
-  user_id: 1
+  id: 2
+  nom: Ville de Berne
+  telephone: 09211288812
+  adresse: Rue de la Plaine 56, 1602 Berne
+  user_id: 2
