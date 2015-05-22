@@ -15,10 +15,14 @@ class RendezVousController < ApplicationController
   # GET /rendez_vous/new
   def new
     @rendez_vou = RendezVou.new
+    @beneficiaires = Beneficiaire.all
+    @employes = Employe.all
   end
 
   # GET /rendez_vous/1/edit
   def edit
+    @beneficiaires = Beneficiaire.all
+    @employes = Employe.all
   end
 
   # POST /rendez_vous
