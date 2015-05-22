@@ -15,10 +15,16 @@ class OrdinateursController < ApplicationController
   # GET /ordinateurs/new
   def new
     @ordinateur = Ordinateur.new
+    @entreprises = Entreprise.all
+    @beneficiaires = Beneficiaire.all
+    @etat_ordinateurs = EtatOrdinateur.all
   end
 
   # GET /ordinateurs/1/edit
   def edit
+    @entreprises = Entreprise.all
+    @beneficiaires = Beneficiaire.all
+    @etat_ordinateurs = EtatOrdinateur.all
   end
 
   # POST /ordinateurs

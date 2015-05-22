@@ -12,17 +12,17 @@
 
 <p>
   <strong>Entreprise:</strong>
-  <%= @ordinateur.entreprise_id %>
+  <%= Entreprise.find(@ordinateur.entreprise_id).nom %>
 </p>
 
 <p>
   <strong>Beneficiaire:</strong>
-  <%= @ordinateur.beneficiaire_id %>
+  <%= Beneficiaire.find(@ordinateur.beneficiaire_id).nom %>
 </p>
 
 <p>
   <strong>Etat ordinateur:</strong>
-  <%= @ordinateur.etat_ordinateur_id %>
+  <%= EtatOrdinateur.find(@ordinateur.etat_ordinateur_id).description %>
 </p>
 
 <%= link_to 'Edit', edit_ordinateur_path(@ordinateur) %> |

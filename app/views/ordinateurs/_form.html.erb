@@ -21,15 +21,18 @@
   </div>
   <div class="field">
     <%= f.label :entreprise_id %><br>
-    <%= f.number_field :entreprise_id %>
+    <%= f.collection_select(:entreprise_id, @entreprises, :id, :nom, {:include_blank => ''}) %>
+    <%= link_to '+', new_entreprise_path %>
   </div>
   <div class="field">
     <%= f.label :beneficiaire_id %><br>
-    <%= f.number_field :beneficiaire_id %>
+    <%= f.collection_select(:beneficiaire_id, @beneficiaires, :id, :nom, {:include_blank => ''}) %>
+    <%= link_to '+', new_beneficiaire_path %>
   </div>
   <div class="field">
     <%= f.label :etat_ordinateur_id %><br>
-    <%= f.number_field :etat_ordinateur_id %>
+    <%= f.collection_select(:etat_ordinateur_id, @etat_ordinateurs, :id, :description, {:include_blank => ''}) %>
+    <%= link_to '+', new_etat_ordinateur_path %>
   </div>
   <div class="actions">
     <%= f.submit %>
