@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :roles
+
   resources :employe_gere_ordinateurs
 
   resources :etat_ordinateurs
@@ -18,7 +20,12 @@ Rails.application.routes.draw do
   resources :employes
 
   devise_for :users
-  resources :users
+  resources :users do    
+      member do     
+         put :save_roles     
+         get :edit_roles    
+      end   
+  end 
   root 'users#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

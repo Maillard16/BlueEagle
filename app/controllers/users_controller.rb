@@ -20,6 +20,11 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    @user = User.find(params[:id]) 
+  end
+  
+  def edit_roles
+      @user = User.find(params[:id])
   end
 
   # POST /users
@@ -60,6 +65,20 @@ class UsersController < ApplicationController
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+  
+  def save_roles     
+     @user = User.find(params[:id])       
+     @user.roles.each do |le_role|       
+         @user.roles.delete(le_role)     
+      end     
+     if params[:user]       
+        for id_role in params[:user][:role_ids]         
+           le_role = Role.find(id_role)         
+           @user.roles << le_role 
+        end     
+     end  
+     redirect_to users_path      
   end
 
   private
