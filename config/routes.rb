@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :notifications
+
   resources :employe_gere_ordinateurs
 
   resources :etat_ordinateurs

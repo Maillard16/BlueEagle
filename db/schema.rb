@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150508095056) do
+ActiveRecord::Schema.define(version: 20150522092225) do
 
   create_table "beneficiaires", force: :cascade do |t|
     t.string   "prenom",                   limit: 255
@@ -55,6 +55,14 @@ ActiveRecord::Schema.define(version: 20150508095056) do
     t.string   "description", limit: 255
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.text     "contenu",    limit: 65535
+    t.integer  "id_user",    limit: 4
+    t.string   "etat",       limit: 255
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "ordinateurs", force: :cascade do |t|

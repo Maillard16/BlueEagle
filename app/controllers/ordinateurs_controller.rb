@@ -48,6 +48,11 @@ class OrdinateursController < ApplicationController
   def update
     respond_to do |format|
       if @ordinateur.update(ordinateur_params)
+        notificationEtat = Notification.new
+        notificationEtat.id_user = 1
+        notificationEtat.contenu = "L'ordinateur " + ordinateur_params['numero'] + " est " + EtatOrdinateur.find(ordinateur_params['etat_ordinateur_id']).description
+        notificationEtat.etat = "non lu"
+        notificationEtat.save
         format.html { redirect_to @ordinateur, notice: 'Ordinateur was successfully updated.' }
         format.json { render :show, status: :ok, location: @ordinateur }
       else
