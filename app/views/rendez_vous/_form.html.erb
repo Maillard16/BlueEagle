@@ -17,11 +17,11 @@
   </div>
   <div class="field">
     <%= f.label :beneficiaire_id %><br>
-    <%= f.number_field :beneficiaire_id %>
+    <%= f.collection_select(:beneficiaire_id, @beneficiaires, :id, :nom, {:include_blank => 'Sélectionner'}) %>
   </div>
   <div class="field">
     <%= f.label :employe_id %><br>
-    <%= f.number_field :employe_id %>
+    <%= f.collection_select(:employe_id, @employes, :id, :nom, {:include_blank => 'Sélectionner'}) %>
   </div>
   <div class="actions">
     <%= f.submit %>
