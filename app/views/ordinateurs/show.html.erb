@@ -22,7 +22,7 @@
 
 <p>
   <strong>Etat ordinateur:</strong>
-  <%= EtatOrdinateur.find(@ordinateur.etat_ordinateur_id).description %>
+  <%= @ordinateur.etat_ordinateur.description %>
 </p>
 
 <%= link_to 'Edit', edit_ordinateur_path(@ordinateur) %> |

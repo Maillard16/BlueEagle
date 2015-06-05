@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h2>Attribution de rendez-vous pour un bénéficiaire</h2>
+
+<p>Nombre d'ordinateurs disponibles : 5</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Prenom</th>
+      <th>Nom</th>
+      <th>Telephone</th>
+      <th>Adresse</th>
+      <th>Organisme</th>
+      <th>Priorite beneficiaire</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @beneficiaires.each do |beneficiaire| %>
+      <tr>
+        <td><%= beneficiaire.prenom %></td>
+        <td><%= beneficiaire.nom %></td>
+        <td><%= beneficiaire.telephone %></td>
+        <td><%= beneficiaire.adresse %></td>
+        <td><%= beneficiaire.organisme_id %></td>
+        <td><%= beneficiaire.priorite_beneficiaire_id %></td>
+        <td><%= link_to 'Show', beneficiaire %></td>
+        <td><%= link_to 'Edit', edit_beneficiaire_path(beneficiaire) %></td>
+        <td><%= link_to 'Destroy', beneficiaire, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Beneficiaire', new_beneficiaire_path %>

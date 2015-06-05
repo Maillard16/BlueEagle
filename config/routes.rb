@@ -30,6 +30,8 @@ Rails.application.routes.draw do
       end   
   end 
   root 'users#index'
+  
+  get 'gerer/beneficiaires' => 'beneficiaires#gerer'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -47,12 +47,21 @@ class OrdinateursController < ApplicationController
   # PATCH/PUT /ordinateurs/1.json
   def update
     respond_to do |format|
+      ancien_etat = @ordinateur.etat_ordinateur_id
       if @ordinateur.update(ordinateur_params)
         notificationEtat = Notification.new
         notificationEtat.id_user = 1
         notificationEtat.contenu = "L'ordinateur " + ordinateur_params['numero'] + " est " + EtatOrdinateur.find(ordinateur_params['etat_ordinateur_id']).description
         notificationEtat.etat = "non lu"
         notificationEtat.save
+        
+        employeGereOrdinateur = EmployeGereOrdinateur.new
+        employeGereOrdinateur.etat_ordinateur_preced_id = ancien_etat
+        employeGereOrdinateur.etat_ordinateur_acquis_id = @ordinateur.etat_ordinateur_id
+        employeGereOrdinateur.employe_id = current_user.id
+        employeGereOrdinateur.ordinateur_id = @ordinateur.id
+        employeGereOrdinateur.date = Date.current
+        employeGereOrdinateur.save
         format.html { redirect_to @ordinateur, notice: 'Ordinateur was successfully updated.' }
         format.json { render :show, status: :ok, location: @ordinateur }
       else
