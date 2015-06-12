@@ -1,12 +1,8 @@
+/* bleu: 2976B2 */
+
 body {
   background-color: #fff;
   color: #333;
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
-}
-
-p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
@@ -66,4 +62,14 @@ div {
     font-size: 12px;
     list-style: square;
   }
+}
+
+.links{
+   background-color:#eee;
+   padding: 30px;
+   border-radius: 10px;
+}
+
+.navbar-top {
+   border-radius: 0!important;
 }

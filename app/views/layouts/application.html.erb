@@ -7,18 +7,53 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div id='user_nav'>
-   <% if user_signed_in? %>      
-      Vous êtes connecté en tant que <%= current_user.email %>      
-      <%= link_to "Déconnexion", destroy_user_session_path, :method => :delete %>      
-      <%= link_to "Modifiez vos données", edit_user_registration_path %>   
-   <% elsif request.env['PATH_INFO']== '/users/sign_in' ||  request.env['PATH_INFO']== '/users/sign_up' %>      
-      <%= link_to "Connexion", new_user_session_path %> ou 
-      <%= link_to "Enregistrez-vous", new_user_registration_path %>     
-   <% end %> 
-</div>
+   <!-- Fixed navbar -->
+   <nav class="navbar navbar-inverse navbar-top">
+      <div class="container">
+         <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+               <span class="sr-only">Toggle navigation</span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">BlueEagle</a>
+         </div>
+         <div id="navbar" class="navbar-collapse collapse">
+            <div class="navbar-form navbar-right">
+               <ul class="nav navbar-nav">
+                  <li><a href="#contact">Contact</a></li>
+                  <li>
+                     <% if user_signed_in? %>      
+                        <%= link_to current_user.username, edit_user_registration_path %> 
+                     <% elsif request.env['PATH_INFO']== '/users/sign_in' ||  request.env['PATH_INFO']== '/users/sign_up' %>      
+                        <%= link_to "Connexion", new_user_session_path %>
+                     <% end %> 
+                  </li>
+                  <li>
+                     <% if user_signed_in? %>     
+                        <%= link_to "Déconnexion", destroy_user_session_path, :method => :delete %>         
+                     <% elsif request.env['PATH_INFO']== '/users/sign_in' ||  request.env['PATH_INFO']== '/users/sign_up' %>      
+                        <%= link_to "Enregistrez-vous", new_user_registration_path %>     
+                     <% end %> 
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </div>
+   </nav>
+   
+   
 
-<%= yield %>
-
+   <div class="container" role="main">
+      <div class="row">
+         <div class="col-md-3 links">
+            liens ici
+         </div>
+         <div class="col-md-9">
+              <%= yield %>
+         </div>
+      </div>
+   </div>
 </body>
 </html>

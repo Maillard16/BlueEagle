@@ -23,6 +23,8 @@ Rails.application.routes.draw do
   resources :employes
 
   devise_for :users
+ 
+  
   resources :users do    
       member do     
          put :save_roles     
