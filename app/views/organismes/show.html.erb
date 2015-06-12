@@ -20,5 +20,10 @@
   <%= @organisme.user_id %>
 </p>
 
+<p>
+  <strong>Ordinateurs disponibles:</strong>
+  <%= @organisme.nb_ordinateurs_dispo %>
+</p>
+
 <%= link_to 'Edit', edit_organisme_path(@organisme) %> |
 <%= link_to 'Back', organismes_path %>

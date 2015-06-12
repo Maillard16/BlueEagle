@@ -33,7 +33,9 @@ Rails.application.routes.draw do
   end 
   root 'users#index'
   
-  get 'gerer/beneficiaires' => 'beneficiaires#gerer'
+  get 'gerer_beneficiaires' => 'beneficiaires#gerer'
+  
+  get 'donner_ordinateurs' => 'organismes#donner_ordinateurs'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

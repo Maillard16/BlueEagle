@@ -60,6 +60,28 @@ class OrganismesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  # GET /organismes/donner_ordinateurs
+  def donner_ordinateurs
+    ordinateurs = Ordinateur.all
+    organismes = Organisme.all
+    nb_dispo = 0
+    
+    for ordinateur in ordinateurs do
+      if (ordinateur.beneficiaire_id == nil)
+        nb_dispo += 1
+      end
+    end
+    
+    for organisme in organismes do
+      if (organisme.nb_ordinateurs_dispo != nil)
+        nb_dispo -= organisme.nb_ordinateurs_dispo
+      end
+    end
+    
+    @nb_ordinateurs_dispo = nb_dispo
+    @organismes = organismes
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -69,6 +91,6 @@ class OrganismesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def organisme_params
-      params.require(:organisme).permit(:nom, :telephone, :adresse, :user_id)
+      params.require(:organisme).permit(:nom, :telephone, :adresse, :user_id, :nb_ordinateurs_dispo)
     end
 end

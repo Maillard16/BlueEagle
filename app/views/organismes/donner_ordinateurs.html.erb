@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Donner des ordinateurs aux organismes</h1>
+
+<p>il y a encore <%= @nb_ordinateurs_dispo %> ordinateurs en stock.</p>
+
+<% @organismes.each do |organisme| %>
+  <p>
+  <%= organisme.nom %> :
+  <br>
+  <%= form_for(organisme) do |f| %>
+    <% if organisme.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(organisme.errors.count, "error") %> prohibited this organisme from being saved:</h2>
+
+      <ul>
+      <% organisme.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+    <% end %>
+    Ordinateurs à disposition : 
+    <%= f.number_field :nb_ordinateurs_dispo %>
+    <%= f.submit "Modifier"%>
+  <% end %>
+  </p>
+<% end %>
+
+<br>
+
+<%= link_to 'Voir ordinateurs', ordinateurs_path %>
