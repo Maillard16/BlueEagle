@@ -11,11 +11,49 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :username %><br>
-    <%= f.text_field :username %>
+    <%= f.text_field :username, class: 'form-control' %>
   </div>
+ 	
+<% if (@entreprise != nil) %>
+		<%= fields_for :entreprise  do |u| %>
+			<div class="field">
+				<%= u.label :nom %><br>
+				<%= u.text_field :nom, class: 'form-control' %>
+			</div>
+			<div class="field">
+				<%= u.label :telephone %><br>
+				<%= u.text_field :telephone, class: 'form-control' %>
+			</div>
+			<div class="field">
+				<%= u.label :adresse %><br>
+				<%= u.text_area(:adresse, rows: 3, class: 'form-control') %>
+			</div>
+		<% end %>
+	<% end %>
+
+	<% if (@organisme != nil) %>
+		<%= fields_for :organisme  do |u| %>
+			<div class="field">
+				<%= u.label :nom %><br>
+				<%= u.text_field :nom, class: 'form-control' %>
+			</div>
+			<div class="field">
+				<%= u.label :telephone %><br>
+				<%= u.text_field :telephone, class: 'form-control' %>
+			</div>
+			<div class="field">
+				<%= u.label :adresse %><br>
+				<!--<textarea class="form-control" rows="3"></textarea>-->
+			
+				<%= u.text_area(:adresse, rows: 3, class: 'form-control') %>
+			</div>
+		<% end %>
+	<% end %>
+
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: 'btn btn-primary' %>
   </div>
 <% end %>

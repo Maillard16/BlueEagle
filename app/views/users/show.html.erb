@@ -10,5 +10,49 @@
    <%= @user.roles_as_text %> 
 </p> 
 
+<% if (@entreprise != nil) %>
+	<p>
+		<strong>Nom:</strong>
+		<%= @entreprise.nom %>
+	</p>
+
+	<p>
+		<strong>Telephone:</strong>
+		<%= @entreprise.telephone %>
+	</p>
+
+	<p>
+		<strong>Adresse:</strong>
+		<%= @entreprise.adresse %>
+	</p>
+
+	<p>
+		<strong>User:</strong>
+		<%= @entreprise.user_id %>
+	</p>
+<% end %>
+
+<% if (@organisme != nil) %>
+	<p>
+		<strong>Nom:</strong>
+		<%= @organisme.nom %>
+	</p>
+
+	<p>
+		<strong>Telephone:</strong>
+		<%= @organisme.telephone %>
+	</p>
+
+	<p>
+		<strong>Adresse:</strong>
+		<%= @organisme.adresse %>
+	</p>
+
+	<p>
+		<strong>User:</strong>
+		<%= @organisme.user_id %>
+	</p>
+<% end %>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

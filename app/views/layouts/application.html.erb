@@ -42,13 +42,49 @@
          </div>
       </div>
    </nav>
-   
-   
-
+ 
    <div class="container" role="main">
       <div class="row">
          <div class="col-md-3 links">
-            liens ici
+            <h3>Ressources</h3>
+            <ul>
+     
+               <% if can? :read, @user %> 
+                  <li>
+                     <%= link_to 'Utilisateurs', users_path() %>
+                  </li>
+                <% end %> 
+               <% if can? :read, @ordinateur %> 
+                  <li>
+                     <%= link_to 'Ordinateurs', ordinateurs_path() %>
+                  </li>
+               <% end %> 
+               <% if can? :read, @rendez_vou %> 
+                  <li>
+                     <%= link_to 'Rendez-vous', rendez_vous_path() %>
+                  </li>
+               <% end %>
+               <% if can? :read, @beneficiaire %> 
+                  <li>
+                     <%= link_to 'Bénéficiaires', beneficiaires_path() %>
+                  </li>
+               <% end %>
+               <% if can? :read, @entreprise %> 
+                  <li>
+                     <%= link_to 'Entreprises', entreprises_path() %>
+                  </li>
+               <% end %> 
+               <% if can? :read, @organisme %> 
+                  <li>
+                     <%= link_to 'Organismes', organismes_path() %>
+                  </li>
+               <% end %> 
+               <% if can? :read, @employe %> 
+                  <li>
+                     <%= link_to 'Employés', employes_path() %>
+                  </li>
+               <% end %> 
+            </ul>
          </div>
          <div class="col-md-9">
               <%= yield %>

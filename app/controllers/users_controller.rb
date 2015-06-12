@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :authenticate_user! 
+  #before_filter :authenticate_user! 
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
@@ -10,7 +10,20 @@ class UsersController < ApplicationController
 
   # GET /users/1
   # GET /users/1.json
-  def show
+  def show	
+		entreprises = Entreprise.all
+		for entreprise in entreprises do
+			if (entreprise.user_id == @user.id)
+				@entreprise = entreprise
+			end
+		end
+		
+		organismes = Organisme.all
+		for organisme in organismes do
+			if (organisme.user_id == @user.id)
+				@organisme = organisme
+			end
+		end
   end
 
   # GET /users/new
@@ -21,6 +34,20 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
     @user = User.find(params[:id]) 
+		
+		entreprises = Entreprise.all
+		for entreprise in entreprises do
+			if (entreprise.user_id == @user.id)
+				@entreprise = entreprise
+			end
+		end
+		
+		organismes = Organisme.all
+		for organisme in organismes do
+			if (organisme.user_id == @user.id)
+				@organisme = organisme
+			end
+		end
   end
   
   def edit_roles

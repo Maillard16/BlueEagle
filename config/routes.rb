@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  
+  root 'static_pages#home'
+  
+  get 'static_pages/home'
+
+  get 'static_pages/contact'
 
   resources :notifications
 
@@ -31,7 +37,6 @@ Rails.application.routes.draw do
          get :edit_roles    
       end   
   end 
-  root 'users#index'
   
   get 'gerer_beneficiaires' => 'beneficiaires#gerer'
   
