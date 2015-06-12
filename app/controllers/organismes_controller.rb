@@ -44,9 +44,12 @@ class OrganismesController < ApplicationController
       if @organisme.update(organisme_params)
         format.html { redirect_to @organisme, notice: 'Organisme was successfully updated.' }
         format.json { render :show, status: :ok, location: @organisme }
+        @nb_dispo = get_nb_ordi_dispo
+        format.js { render 'update' }
       else
         format.html { render :edit }
         format.json { render json: @organisme.errors, status: :unprocessable_entity }
+        format.js { render 'update_fail' }
       end
     end
   end
@@ -63,24 +66,8 @@ class OrganismesController < ApplicationController
   
   # GET /organismes/donner_ordinateurs
   def donner_ordinateurs
-    ordinateurs = Ordinateur.all
-    organismes = Organisme.all
-    nb_dispo = 0
-    
-    for ordinateur in ordinateurs do
-      if (ordinateur.beneficiaire_id == nil)
-        nb_dispo += 1
-      end
-    end
-    
-    for organisme in organismes do
-      if (organisme.nb_ordinateurs_dispo != nil)
-        nb_dispo -= organisme.nb_ordinateurs_dispo
-      end
-    end
-    
-    @nb_ordinateurs_dispo = nb_dispo
-    @organismes = organismes
+    @nb_ordinateurs_dispo = get_nb_ordi_dispo
+    @organismes = Organisme.all
   end
 
   private
@@ -92,5 +79,25 @@ class OrganismesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def organisme_params
       params.require(:organisme).permit(:nom, :telephone, :adresse, :user_id, :nb_ordinateurs_dispo)
+    end
+  
+    def get_nb_ordi_dispo
+      ordinateurs = Ordinateur.all
+      organismes = Organisme.all
+      nb_dispo = 0
+
+      for ordinateur in ordinateurs do
+        if (ordinateur.beneficiaire_id == nil)
+          nb_dispo += 1
+        end
+      end
+
+      for organisme in organismes do
+        if (organisme.nb_ordinateurs_dispo != nil)
+          nb_dispo -= organisme.nb_ordinateurs_dispo
+        end
+      end
+      
+      return nb_dispo
     end
 end

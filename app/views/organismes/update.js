@@ -1,0 +1,1 @@
+$('#ordi_dispo').html("<%= @nb_dispo %>")

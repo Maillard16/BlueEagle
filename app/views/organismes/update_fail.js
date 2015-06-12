@@ -1,0 +1,1 @@
+$('#error_explanation_<%= @organisme.id %>').html("<% @organisme.errors.full_messages.each do |message| %><p style='color:red;'><%= message %></p><% end %>")
