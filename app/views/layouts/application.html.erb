@@ -48,42 +48,35 @@
          <div class="col-md-3 links">
             <h3>Ressources</h3>
             <ul>
-     
-               <% if can? :read, @user %> 
+								<%= @user %> et
+								<%= @employe %> et
+								<%= @entreprise %>
+							
+							  <% if can? :menu_admin, @user %> 
                   <li>
-                     <%= link_to 'Utilisateurs', users_path() %>
+                     <%= link_to 'Utilisateurs', users_path() %>		 
                   </li>
+									<li>
+										<%= link_to 'Ordinateurs', ordinateurs_path() %>
+									</li>
+									<li>
+										<%= link_to 'Rendez-vous', rendez_vous_path() %>
+									</li>
+									<li>
+										<%= link_to 'Bénéficiaires', beneficiaires_path() %>
+									</li>
+									<li>
+									 <%= link_to 'Entreprises', entreprises_path() %>
+									</li>
+									<li>
+											<%= link_to 'Employés', employes_path() %>
+									</li>
                 <% end %> 
-               <% if can? :read, @ordinateur %> 
+							<% if (@entreprise != nil) ||  (@employe != nil) %>
                   <li>
-                     <%= link_to 'Ordinateurs', ordinateurs_path() %>
+										 <%= link_to 'Ordinateurs', ordinateurs_path() %>
                   </li>
-               <% end %> 
-               <% if can? :read, @rendez_vou %> 
-                  <li>
-                     <%= link_to 'Rendez-vous', rendez_vous_path() %>
-                  </li>
-               <% end %>
-               <% if can? :read, @beneficiaire %> 
-                  <li>
-                     <%= link_to 'Bénéficiaires', beneficiaires_path() %>
-                  </li>
-               <% end %>
-               <% if can? :read, @entreprise %> 
-                  <li>
-                     <%= link_to 'Entreprises', entreprises_path() %>
-                  </li>
-               <% end %> 
-               <% if can? :read, @organisme %> 
-                  <li>
-                     <%= link_to 'Organismes', organismes_path() %>
-                  </li>
-               <% end %> 
-               <% if can? :read, @employe %> 
-                  <li>
-                     <%= link_to 'Employés', employes_path() %>
-                  </li>
-               <% end %> 
+							<% end %>
             </ul>
          </div>
          <div class="col-md-9">

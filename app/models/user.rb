@@ -4,11 +4,13 @@ class User < ActiveRecord::Base
 	 has_one :organisme
 	 has_one :entreprise
    has_many :notification
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  
+	devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+	
 	accepts_nested_attributes_for :entreprise, :organisme
+
+	
          
   def has_role?(role)      
       return self.roles.find_by(:name => role.to_s.camelize)    
