@@ -14,7 +14,7 @@ class Ability
    end
 	 if user.has_role? :blueEagle     
 		  can :menu_blueEagle, @ordinateurs
-		  can [:read, :create, :update], Ordinateur  
+		  can [:read, :create, :update], Ordinateur, RendezVou 
 	 end
 	 if user.has_role? :entreprise   
 		 can :read, Ordinateur    

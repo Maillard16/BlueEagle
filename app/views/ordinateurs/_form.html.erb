@@ -23,17 +23,17 @@
   <div class="field form-group">
     <%= f.label :entreprise_id %><br>
     <%= f.collection_select(:entreprise_id, @entreprises, :id, :nom, {:include_blank => ''}, class: 'form-control') %>
-    <%= link_to '+', new_entreprise_path, class: 'btn btn-primary plus' %>
+    <%= link_to 'Ou ajouter une entreprise', new_entreprise_path %>
   </div>
   <div class="field form-group">
     <%= f.label :beneficiaire_id %><br>
     <%= f.collection_select(:beneficiaire_id, @beneficiaires, :id, :nom, {:include_blank => ''}, class: 'form-control') %>
-    <%= link_to '+', new_beneficiaire_path, class: 'btn btn-primary plus' %>
-  </div>
+    <%= link_to 'Ou ajouter un bénéficiaire', new_beneficiaire_path %>
+	</div>
   <div class="field form-group">
     <%= f.label :etat_ordinateur_id %><br>
     <%= f.collection_select(:etat_ordinateur_id, @etat_ordinateurs, :id, :description, {:include_blank => ''}, class: 'form-control') %>
-    <%= link_to '+', new_etat_ordinateur_path, class: 'btn btn-primary plus' %>
+    <%= link_to 'Ou ajouter un état d\'ordinateur', new_etat_ordinateur_path %>
   </div>
   <div class="actions">
     <%= f.submit class: 'btn btn-primary' %>
