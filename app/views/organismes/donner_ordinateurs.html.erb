@@ -2,22 +2,23 @@
 
 <h1>Donner des ordinateurs aux organismes</h1>
 
-<p>il y a encore <span id="ordi_dispo"><%= @nb_ordinateurs_dispo %></span> ordinateurs prêt en stock.</p>
-
+<p class="bg-info">Il y a encore <span id="ordi_dispo"><%= @nb_ordinateurs_dispo %></span> ordinateur(s) prêt(s) en stock.</p>
+<div class="col-md-6">
 <% @organismes.each do |organisme| %>
-  <p>
-  <%= organisme.nom %> :
-  <br>
+  <h3><%= organisme.nom %>:</h2
   <%= form_for(organisme, :remote => true) do |f| %>
     <div id="error_explanation_<%= organisme.id %>">
     </div>
-    Ordinateurs à disposition : 
-    <%= f.number_field :nb_ordinateurs_dispo %>
-    <%= f.submit "Modifier"%>
+		<div class="field form-group">
+			<%= f.label 'Ordinateurs à disposition' %><br>
+			<%= f.number_field :nb_ordinateurs_dispo, class: 'form-control' %>
+		</div>
+     
+    
+    <%= f.submit "Modifier", class: 'btn btn-primary'%>
   <% end %>
-  </p>
 <% end %>
-
+</div>
 <br>
 
-<%= link_to 'Voir ordinateurs', ordinateurs_path %>
+<%= link_to 'Voir les ordinateurs', ordinateurs_path, class: 'btn btn-info' %>

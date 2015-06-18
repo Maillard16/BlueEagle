@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Numero:</strong>
+  <strong>Numéro:</strong>
   <%= @ordinateur.numero %>
 </p>
 
@@ -16,14 +16,14 @@
 </p>
 
 <p>
-  <strong>Beneficiaire:</strong>
+  <strong>Bénéficiaire:</strong>
   <%= Beneficiaire.find(@ordinateur.beneficiaire_id).nom %>
 </p>
 
 <p>
-  <strong>Etat ordinateur:</strong>
+  <strong>Etat:</strong>
   <%= @ordinateur.etat_ordinateur.description %>
 </p>
 
-<%= link_to 'Edit', edit_ordinateur_path(@ordinateur) %> |
-<%= link_to 'Back', ordinateurs_path %>
+<%= link_to 'Editer', edit_ordinateur_path(@ordinateur) %> |
+<%= link_to 'Retour', ordinateurs_path %>

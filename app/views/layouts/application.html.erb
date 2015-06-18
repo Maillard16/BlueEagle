@@ -85,10 +85,10 @@
                      <%= link_to 'Utilisateurs', users_path(), class: 'btn-lg' %>		 
                   </li>
 									<li>
-										 <%= link_to 'Gestion ordinateurs', ordinateurs_path(), class: 'btn-lg' %>
+										 <%= link_to 'Ordinateurs', ordinateurs_path(), class: 'btn-lg' %>
                   </li>
                   <li>
-										 <%= link_to 'Donner ordinateurs', donner_ordinateurs_path(), class: 'btn-lg' %>
+										 <%= link_to 'Donner un ordinateur', donner_ordinateurs_path(), class: 'btn-lg' %>
                   </li>
 									<li>
 										<%= link_to 'Rendez-vous', rendez_vous_path(), class: 'btn-lg' %>
@@ -102,6 +102,9 @@
 									<li>
 											<%= link_to 'Employés', employes_path(), class: 'btn-lg' %>
 									</li>
+									<li>
+										 <%= link_to 'Organismes', organismes_path(), class: 'btn-lg' %>
+                  </li>
                 <% end %> 
 							<% if (@entreprise != nil) %>
                   <li>
@@ -126,7 +129,7 @@
 							<% end %>
             </ul>
          </div>
-         <div class="col-md-9">
+         <div class="col-md-8">
               <%= yield %>
          </div>
       </div>

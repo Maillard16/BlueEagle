@@ -1,3 +1,4 @@
+<div class="col-md-6">
 <%= form_for(@ordinateur) do |f| %>
   <% if @ordinateur.errors.any? %>
     <div id="error_explanation">
@@ -11,30 +12,31 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :numero %><br>
-    <%= f.number_field :numero %>
+    <%= f.number_field :numero, class: 'form-control' %>
   </div>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :description %><br>
-    <%= f.text_area :description %>
+    <%= f.text_area :description, class: 'form-control' %>
   </div>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :entreprise_id %><br>
-    <%= f.collection_select(:entreprise_id, @entreprises, :id, :nom, {:include_blank => ''}) %>
-    <%= link_to '+', new_entreprise_path %>
+    <%= f.collection_select(:entreprise_id, @entreprises, :id, :nom, {:include_blank => ''}, class: 'form-control') %>
+    <%= link_to '+', new_entreprise_path, class: 'btn btn-primary plus' %>
   </div>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :beneficiaire_id %><br>
-    <%= f.collection_select(:beneficiaire_id, @beneficiaires, :id, :nom, {:include_blank => ''}) %>
-    <%= link_to '+', new_beneficiaire_path %>
+    <%= f.collection_select(:beneficiaire_id, @beneficiaires, :id, :nom, {:include_blank => ''}, class: 'form-control') %>
+    <%= link_to '+', new_beneficiaire_path, class: 'btn btn-primary plus' %>
   </div>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :etat_ordinateur_id %><br>
-    <%= f.collection_select(:etat_ordinateur_id, @etat_ordinateurs, :id, :description, {:include_blank => ''}) %>
-    <%= link_to '+', new_etat_ordinateur_path %>
+    <%= f.collection_select(:etat_ordinateur_id, @etat_ordinateurs, :id, :description, {:include_blank => ''}, class: 'form-control') %>
+    <%= link_to '+', new_etat_ordinateur_path, class: 'btn btn-primary plus' %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: 'btn btn-primary' %>
   </div>
 <% end %>
+</div>
