@@ -23,6 +23,17 @@ a {
   }
 }
 
+.navbar-header a.navbar-brand {
+	margin-top: 10px;
+	font-size: 1.5em;
+	margin-left: 15px!important;
+	color: #fff!important;
+}
+
+.navbar-header a.navbar-brand_hover {
+	color: #1E67CC!important;
+}
+
 p {
 	padding: 15px!important;
 }
