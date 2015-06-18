@@ -24,6 +24,11 @@
     <%= f.label :adresse %><br>
     <%= f.text_field :adresse, class: 'form-control' %>
   </div>
+	<div class="field form-group">
+    <%= f.label 'Id du compte Utilisateur' %><br>
+		<%= f.text_field :user_id, class: 'form-control' %>
+	  <span id="helpBlock" class="help-block">A faire correspondre avec l'id du compte Utilisateur.</span>
+	</div>
 	<div class="actions">
 			<%= f.submit class: 'btn btn-primary' %>
 		</div>

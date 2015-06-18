@@ -1,3 +1,4 @@
+<div class="col-md-6">
 <%= form_for(@rendez_vou) do |f| %>
   <% if @rendez_vou.errors.any? %>
     <div id="error_explanation">
@@ -11,19 +12,20 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :date %><br>
-    <%= f.date_select :date %>
+    <%= f.date_select :date, class: 'form-control' %>
   </div>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :beneficiaire_id %><br>
-    <%= f.collection_select(:beneficiaire_id, @beneficiaires, :id, :nom, {:include_blank => 'Sélectionner'}) %>
+    <%= f.collection_select(:beneficiaire_id, @beneficiaires, :id, :nom, {:include_blank => 'Sélectionner'}, class: 'form-control') %>
   </div>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :employe_id %><br>
-    <%= f.collection_select(:employe_id, @employes, :id, :nom, {:include_blank => 'Sélectionner'}) %>
+    <%= f.collection_select(:employe_id, @employes, :id, :nom, {:include_blank => 'Sélectionner'}, class: 'form-control') %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: 'btn btn-primary' %>
   </div>
 <% end %>
+</div>
