@@ -62,7 +62,8 @@ class BeneficiairesController < ApplicationController
   end
 
   def gerer
-    @beneficiaires = Beneficiaire.all
+    @organisme = Organisme.find_by(user_id: current_user.id)
+    @beneficiaires = Beneficiaire.where(organisme_id: @organisme.id)
   end
   
   private
