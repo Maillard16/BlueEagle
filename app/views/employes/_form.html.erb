@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-
+	
   <div class="field">
     <%= f.label :prenom %><br>
     <%= f.text_field :prenom %>
@@ -20,6 +20,8 @@
     <%= f.text_field :nom %>
   </div>
   <div class="actions">
-    <%= f.submit %>
-  </div>
+		<%= f.submit class: 'btn btn-primary' %>
+	</div>
+
+	
 <% end %>

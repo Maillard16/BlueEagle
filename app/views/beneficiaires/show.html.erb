@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Prenom:</strong>
+  <strong>Prénom:</strong>
   <%= @beneficiaire.prenom %>
 </p>
 
@@ -11,7 +11,7 @@
 </p>
 
 <p>
-  <strong>Telephone:</strong>
+  <strong>Téléphone:</strong>
   <%= @beneficiaire.telephone %>
 </p>
 
@@ -22,13 +22,13 @@
 
 <p>
   <strong>Organisme:</strong>
-  <%= @beneficiaire.organisme_id %>
+	<%= Organisme.find(@beneficiaire.organisme_id).nom %>
 </p>
 
 <p>
-  <strong>Priorite beneficiaire:</strong>
+  <strong>Priorité:</strong>
   <%= @beneficiaire.priorite_beneficiaire_id %>
 </p>
 
-<%= link_to 'Edit', edit_beneficiaire_path(@beneficiaire) %> |
-<%= link_to 'Back', beneficiaires_path %>
+<%= link_to 'Editer', edit_beneficiaire_path(@beneficiaire) %> |
+<%= link_to 'Retour', beneficiaires_path %>

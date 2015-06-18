@@ -23,6 +23,10 @@ a {
   }
 }
 
+h1 {
+	color: #051B33!important;
+}
+
 div {
   &.field, &.actions {
     margin-bottom: 10px;
@@ -38,6 +42,26 @@ div {
   background-color: red;
   display: table;
 }
+
+.navbar-inverse {
+	background-color: #062240!important;
+}
+
+.btn {
+	border-radius: 0!important;
+}
+
+.btn-info {
+	background-color: #062240!important;
+	border: 1px solid #062240!important;
+	float: right;
+}
+
+.btn-info:hover {
+	background-color: #fff!important;
+	color: #062240!important;
+}
+
 
 #error_explanation {
   width: 450px;
@@ -62,10 +86,30 @@ div {
   }
 }
 
-.links{
-   background-color: #ABFFF3;
-   padding: 0 30px 30px 30px;
-   border-radius: 6px;
+#links ul li {
+	text-decoration: none;
+	list-style: none;
+	margin: 8px 0;
+}
+
+#links ul li a {
+	background-color: #1E67CC;
+	border: 1px solid #1E67CC;
+	padding: 12px 11px 11px 11px;
+	color: #fff;
+ 	display:block;
+	border-radius: 0px!important;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	font-size: 0.9em;
+	font-weight: bold;
+}
+
+#links ul li a:hover {
+	text-decoration: none;
+	background-color: #fff;
+	color: #1E67CC;
+
 }
 
 .navbar-top {

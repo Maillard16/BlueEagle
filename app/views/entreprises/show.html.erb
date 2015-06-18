@@ -6,7 +6,7 @@
 </p>
 
 <p>
-  <strong>Telephone:</strong>
+  <strong>Téléphone:</strong>
   <%= @entreprise.telephone %>
 </p>
 
@@ -15,10 +15,6 @@
   <%= @entreprise.adresse %>
 </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @entreprise.user_id %>
-</p>
 
-<%= link_to 'Edit', edit_entreprise_path(@entreprise) %> |
-<%= link_to 'Back', entreprises_path %>
+<%= link_to 'Editer', edit_entreprise_path(@entreprise) %> |
+<%= link_to 'Retour', entreprises_path %>

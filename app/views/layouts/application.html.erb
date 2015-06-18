@@ -4,7 +4,9 @@
   if (@user != nil)
     @user_id = current_user.id
 
-
+		 if (@user.has_role?(:admin))
+        @admin = @user
+     end
 
     entreprises = Entreprise.all
     for entreprise in entreprises do
@@ -76,51 +78,50 @@
  
    <div class="container" role="main">
       <div class="row">
-         <div class="col-md-3 links">
-            <h3>Ressources</h3>
+         <div class="col-md-3" id="links">
             <ul>							
 							  <% if can? :menu_admin, @user %> 
                   <li>
-                     <%= link_to 'Utilisateurs', users_path() %>		 
+                     <%= link_to 'Utilisateurs', users_path(), class: 'btn-lg' %>		 
                   </li>
 									<li>
-										 <%= link_to 'Gestion ordinateurs', ordinateurs_path() %>
+										 <%= link_to 'Gestion ordinateurs', ordinateurs_path(), class: 'btn-lg' %>
                   </li>
                   <li>
-										 <%= link_to 'Donner ordinateurs', donner_ordinateurs_path() %>
+										 <%= link_to 'Donner ordinateurs', donner_ordinateurs_path(), class: 'btn-lg' %>
                   </li>
 									<li>
-										<%= link_to 'Rendez-vous', rendez_vous_path() %>
+										<%= link_to 'Rendez-vous', rendez_vous_path(), class: 'btn-lg' %>
 									</li>
 									<li>
-										<%= link_to 'Bénéficiaires', beneficiaires_path() %>
+										<%= link_to 'Bénéficiaires', beneficiaires_path(), class: 'btn-lg' %>
 									</li>
 									<li>
-									 <%= link_to 'Entreprises', entreprises_path() %>
+									 <%= link_to 'Entreprises', entreprises_path(), class: 'btn-lg' %>
 									</li>
 									<li>
-											<%= link_to 'Employés', employes_path() %>
+											<%= link_to 'Employés', employes_path(), class: 'btn-lg' %>
 									</li>
                 <% end %> 
 							<% if (@entreprise != nil) %>
                   <li>
-										 <%= link_to 'Suivi ordinateurs', index_ordinateurs_entreprise_path() %>
+										 <%= link_to 'Suivi ordinateurs', index_ordinateurs_entreprise_path(), class: 'btn-lg' %>
                   </li>
 							<% end %>
-              <% if (@employe != nil) %>
+              <% if ((@employe != nil) && (@admin == nil)) %>
                   <li>
-										 <%= link_to 'Gestion ordinateurs', ordinateurs_path() %>
+										 <%= link_to 'Gestion ordinateurs', ordinateurs_path(), class: 'btn-lg' %>
                   </li>
                   <li>
-										 <%= link_to 'Donner ordinateurs', donner_ordinateurs_path() %>
+										 <%= link_to 'Donner ordinateurs', donner_ordinateurs_path(), class: 'btn-lg' %>
                   </li>
 							<% end %>
               <% if (@organisme != nil) %>
                   <li>
-										 <%= link_to 'Organiser rdv', organiser_rdv_path() %>
+										 <%= link_to 'Organiser rdv', organiser_rdv_path(), class: 'btn-lg' %>
                   </li>
                   <li>
-										 <%= link_to 'Gérer bénéficiaires', gerer_beneficiaires_path() %>
+										 <%= link_to 'Gérer bénéficiaires', gerer_beneficiaires_path(), class: 'btn-lg' %>
                   </li>
 							<% end %>
             </ul>
