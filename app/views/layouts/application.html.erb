@@ -78,18 +78,17 @@
       <div class="row">
          <div class="col-md-3 links">
             <h3>Ressources</h3>
-            <ul>
-								<%= @user %> et
-								<%= @employe %> et
-								<%= @entreprise %>
-							
+            <ul>							
 							  <% if can? :menu_admin, @user %> 
                   <li>
                      <%= link_to 'Utilisateurs', users_path() %>		 
                   </li>
 									<li>
-										<%= link_to 'Ordinateurs', ordinateurs_path() %>
-									</li>
+										 <%= link_to 'Gestion ordinateurs', ordinateurs_path() %>
+                  </li>
+                  <li>
+										 <%= link_to 'Donner ordinateurs', donner_ordinateurs_path() %>
+                  </li>
 									<li>
 										<%= link_to 'Rendez-vous', rendez_vous_path() %>
 									</li>
@@ -103,9 +102,25 @@
 											<%= link_to 'Employés', employes_path() %>
 									</li>
                 <% end %> 
-							<% if (@entreprise != nil) ||  (@employe != nil) %>
+							<% if (@entreprise != nil) %>
                   <li>
-										 <%= link_to 'Ordinateurs', ordinateurs_path() %>
+										 <%= link_to 'Suivi ordinateurs', index_ordinateurs_entreprise_path() %>
+                  </li>
+							<% end %>
+              <% if (@employe != nil) %>
+                  <li>
+										 <%= link_to 'Gestion ordinateurs', ordinateurs_path() %>
+                  </li>
+                  <li>
+										 <%= link_to 'Donner ordinateurs', donner_ordinateurs_path() %>
+                  </li>
+							<% end %>
+              <% if (@organisme != nil) %>
+                  <li>
+										 <%= link_to 'Organiser rdv', organiser_rdv_path() %>
+                  </li>
+                  <li>
+										 <%= link_to 'Gérer bénéficiaires', gerer_beneficiaires_path() %>
                   </li>
 							<% end %>
             </ul>
