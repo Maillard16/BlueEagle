@@ -6,7 +6,7 @@
 </p>
 
 <p>
-  <strong>Telephone:</strong>
+  <strong>Téléphone:</strong>
   <%= @organisme.telephone %>
 </p>
 
@@ -16,14 +16,9 @@
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @organisme.user_id %>
-</p>
-
-<p>
   <strong>Ordinateurs disponibles:</strong>
   <%= @organisme.nb_ordinateurs_dispo %>
 </p>
 
-<%= link_to 'Edit', edit_organisme_path(@organisme) %> |
-<%= link_to 'Back', organismes_path %>
+<%= link_to 'Editer', edit_organisme_path(@organisme) %> |
+<%= link_to 'Retour', organismes_path %>

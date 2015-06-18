@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Rendez Vous</h1>
+<h1>Rendez-vous</h1>
 
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
       <th>Date</th>
-      <th>Beneficiaire</th>
-      <th>Employe BE</th>
+      <th>Bénéficiaire</th>
+      <th>Employé BlueEagle</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,9 +18,9 @@
         <td><%= rendez_vou.date %></td>
         <td><%= Beneficiaire.find(rendez_vou.beneficiaire_id).prenom %> <%= Beneficiaire.find(rendez_vou.beneficiaire_id).nom %></td>
         <td><%= Employe.find(rendez_vou.employe_id).prenom %> <%= Employe.find(rendez_vou.employe_id).nom %></td>
-        <td><%= link_to 'Show', rendez_vou %></td>
-        <td><%= link_to 'Edit', edit_rendez_vou_path(rendez_vou) %></td>
-        <td><%= link_to 'Destroy', rendez_vou, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Voir', rendez_vou %></td>
+        <td><%= link_to 'Editer', edit_rendez_vou_path(rendez_vou) %></td>
+        <td><%= link_to 'Effacer', rendez_vou, method: :delete, data: { confirm: 'Etes-vous sûr' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Rendez vou', new_rendez_vou_path %>
+<%= link_to 'Ajouter un rendez-vous', new_rendez_vou_path, class: 'btn btn-info' %>
