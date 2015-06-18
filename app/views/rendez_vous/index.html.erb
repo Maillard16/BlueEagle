@@ -16,8 +16,16 @@
     <% @rendez_vous.each do |rendez_vou| %>
       <tr>
         <td><%= rendez_vou.date %></td>
-        <td><%= Beneficiaire.find(rendez_vou.beneficiaire_id).prenom %> <%= Beneficiaire.find(rendez_vou.beneficiaire_id).nom %></td>
-        <td><%= Employe.find(rendez_vou.employe_id).prenom %> <%= Employe.find(rendez_vou.employe_id).nom %></td>
+        <% if rendez_vou.beneficiaire_id != nil %>
+          <td><%= Beneficiaire.find(rendez_vou.beneficiaire_id).prenom %> <%= Beneficiaire.find(rendez_vou.beneficiaire_id).nom %></td>
+        <% else %>
+          <td>non assigné</td>
+        <% end %>
+        <% if rendez_vou.employe_id != nil %>
+          <td><%= Employe.find(rendez_vou.employe_id).prenom %> <%= Employe.find(rendez_vou.employe_id).nom %></td>
+        <% else %>
+          <td>non assigné</td>
+        <% end %>
         <td><%= link_to 'Show', rendez_vou %></td>
         <td><%= link_to 'Edit', edit_rendez_vou_path(rendez_vou) %></td>
         <td><%= link_to 'Destroy', rendez_vou, method: :delete, data: { confirm: 'Are you sure?' } %></td>

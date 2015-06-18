@@ -7,12 +7,20 @@
 
 <p>
   <strong>Bénéficiaire:</strong>
-  <%= Beneficiaire.find(@rendez_vou.beneficiaire_id).prenom %> <%= Beneficiaire.find(@rendez_vou.beneficiaire_id).nom %>
+  <% if @rendez_vou.beneficiaire_id != nil %>
+    <%= Beneficiaire.find(@rendez_vou.beneficiaire_id).prenom %> <%= Beneficiaire.find(@rendez_vou.beneficiaire_id).nom %>
+  <% else %>
+    non assigné
+  <% end %>
 </p>
 
 <p>
   <strong>Employé:</strong>
-  <%= Employe.find(@rendez_vou.employe_id).prenom %> <%= Employe.find(@rendez_vou.employe_id).nom %>
+  <% if @rendez_vou.employe_id != nil %>
+    <%= Employe.find(@rendez_vou.employe_id).prenom %> <%= Employe.find(@rendez_vou.employe_id).nom %>
+  <% else %>
+    non assigné
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_rendez_vou_path(@rendez_vou) %> |
