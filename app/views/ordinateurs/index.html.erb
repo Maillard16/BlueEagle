@@ -20,7 +20,11 @@
         <td><%= ordinateur.numero %></td>
         <td><%= ordinateur.description %></td>
         <td><%= Entreprise.find(ordinateur.entreprise_id).nom %></td>
+        <% if (ordinateur.beneficiaire_id == nil) %>
+        <td>Non attribué</td>
+        <% else %>
         <td><%= Beneficiaire.find(ordinateur.beneficiaire_id).nom %></td>
+        <% end %>
         <td><%= EtatOrdinateur.find(ordinateur.etat_ordinateur_id).description %></td>
         <td><%= link_to 'Show', ordinateur %></td>
         <td><%= link_to 'Edit', edit_ordinateur_path(ordinateur) %></td>

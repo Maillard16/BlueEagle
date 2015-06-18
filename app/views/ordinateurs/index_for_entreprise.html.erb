@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Ordinateurs de <%= @entreprise.nom %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Numero</th>
+      <th>Description</th>
+      <th>Etat ordinateur</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ordinateurs.each do |ordinateur| %>
+      <tr>
+        <td><%= ordinateur.numero %></td>
+        <td><%= ordinateur.description %></td>
+        <td><%= EtatOrdinateur.find(ordinateur.etat_ordinateur_id).description %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

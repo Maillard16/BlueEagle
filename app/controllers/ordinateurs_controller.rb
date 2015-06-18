@@ -48,13 +48,7 @@ class OrdinateursController < ApplicationController
   def update
     respond_to do |format|
       ancien_etat = @ordinateur.etat_ordinateur_id
-      if @ordinateur.update(ordinateur_params)
-        notificationEtat = Notification.new
-        notificationEtat.id_user = 1
-        notificationEtat.contenu = "L'ordinateur " + ordinateur_params['numero'] + " est " + EtatOrdinateur.find(ordinateur_params['etat_ordinateur_id']).description
-        notificationEtat.etat = "non lu"
-        notificationEtat.save
-        
+      if @ordinateur.update(ordinateur_params)        
         employeGereOrdinateur = EmployeGereOrdinateur.new
         employeGereOrdinateur.etat_ordinateur_preced_id = ancien_etat
         employeGereOrdinateur.etat_ordinateur_acquis_id = @ordinateur.etat_ordinateur_id
@@ -79,6 +73,11 @@ class OrdinateursController < ApplicationController
       format.html { redirect_to ordinateurs_url, notice: 'Ordinateur was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+  
+  def index_for_entreprise
+    @entreprise = Entreprise.find_by(user_id: current_user.id)
+    @ordinateurs = Ordinateur.where(entreprise_id: @entreprise.id)
   end
 
   private

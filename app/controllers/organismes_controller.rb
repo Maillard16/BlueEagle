@@ -41,10 +41,19 @@ class OrganismesController < ApplicationController
   # PATCH/PUT /organismes/1.json
   def update
     respond_to do |format|
+      old_nb_dispo = @organisme.nb_ordinateurs_dispo
       if @organisme.update(organisme_params)
         format.html { redirect_to @organisme, notice: 'Organisme was successfully updated.' }
         format.json { render :show, status: :ok, location: @organisme }
         @nb_dispo = get_nb_ordi_dispo
+        new_nb_dispo = @organisme.nb_ordinateurs_dispo
+        if new_nb_dispo != old_nb_dispo
+          notificationEtat = Notification.new
+          notificationEtat.id_user = @organisme.user_id
+          notificationEtat.contenu = "Il y a " + new_nb_dispo.to_s + " ordinateurs disponibles."
+          notificationEtat.etat = "non lu"
+          notificationEtat.save
+        end
         format.js { render 'update' }
       else
         format.html { render :edit }
@@ -69,6 +78,13 @@ class OrganismesController < ApplicationController
     @nb_ordinateurs_dispo = get_nb_ordi_dispo
     @organismes = Organisme.all
   end
+  
+  def organiser_rdv
+    @rendez_vous = RendezVou.where(beneficiaire_id: nil)
+    organisme_id = Organisme.find_by(user_id: current_user.id).id
+    beneficiaires_org = Beneficiaire.where(organisme_id: organisme_id)
+    @beneficiaires = beneficiaires_org.select {|b| RendezVou.find_by(beneficiaire_id: b.id) == nil}
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -87,7 +103,7 @@ class OrganismesController < ApplicationController
       nb_dispo = 0
 
       for ordinateur in ordinateurs do
-        if (ordinateur.beneficiaire_id == nil)
+        if (ordinateur.beneficiaire_id == nil and ordinateur.etat_ordinateur_id == 1)
           nb_dispo += 1
         end
       end

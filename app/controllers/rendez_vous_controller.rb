@@ -48,6 +48,7 @@ class RendezVousController < ApplicationController
       if @rendez_vou.update(rendez_vou_params)
         format.html { redirect_to @rendez_vou, notice: 'Rendez vou was successfully updated.' }
         format.json { render :show, status: :ok, location: @rendez_vou }
+        format.js {render :update}
       else
         format.html { render :edit }
         format.json { render json: @rendez_vou.errors, status: :unprocessable_entity }

@@ -1,0 +1,1 @@
+$('#form_rdv_<%= @rendez_vou.id %>').html("")

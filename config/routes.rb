@@ -41,6 +41,10 @@ Rails.application.routes.draw do
   get 'gerer_beneficiaires' => 'beneficiaires#gerer'
   
   get 'donner_ordinateurs' => 'organismes#donner_ordinateurs'
+  
+  get 'index_ordinateurs_entreprise' => 'ordinateurs#index_for_entreprise'
+  
+  get 'organiser_rdv' => 'organismes#organiser_rdv'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

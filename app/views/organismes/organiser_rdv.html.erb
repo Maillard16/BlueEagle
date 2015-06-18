@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Liste des Rendez Vous disponibles</h1>
+  <% @rendez_vous.each do |rendez_vou| %>
+    <div id="form_rdv_<%= rendez_vou.id %>">
+    <%= form_for(rendez_vou, :remote => true) do |f| %>
+      <div>
+        Heure : <%= rendez_vou.date %>
+      </div>
+      <div class="field">
+        <%= f.label :beneficiaire_id %>
+        <%= f.collection_select(:beneficiaire_id, @beneficiaires, :id, :nom, {:include_blank => 'Sélectionner'}) %>
+      </div>
+      <div class="actions">
+        <%= f.submit "Assigner" %>
+      </div>
+    <% end %>
+    </div>
+  <% end %>
+
+<br>
