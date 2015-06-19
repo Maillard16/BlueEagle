@@ -5,7 +5,7 @@
 <p class="bg-info">Il y a encore <span id="ordi_dispo"><%= @nb_ordinateurs_dispo %></span> ordinateur(s) prêt(s) en stock.</p>
 <div class="col-md-6">
 <% @organismes.each do |organisme| %>
-  <h3><%= organisme.nom %>:</h2
+  <h2><%= organisme.nom %>:</h2>
   <%= form_for(organisme, :remote => true) do |f| %>
     <div id="error_explanation_<%= organisme.id %>">
     </div>
